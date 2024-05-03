@@ -1,0 +1,116 @@
+﻿@model ShopDongHo.Models.DatHang
+@{
+    ViewBag.Title = "ThanhToanVnpayPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cart = (List<ShopDongHo.Models.SanPhamTrongGio>)Session["cart"];
+}
+
+    <div class="jumbotron">
+        <h1>Thanh Toán VNPAY</h1>
+    </div>
+<div class="container">
+        <div class="row">
+            <div class="col-md-4 order-md-4 mb-4 px-3"
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Đơn hàng</span>
+            <span class="badge badge-secondary badge-pill">@cart.Count()</span>
+            </h4>
+            <ul class="list-group">
+            <li class="">
+            @{ int stt = 1; }
+            @foreach (var item in cart)
+            {
+               
+                <div class="list-group-item">
+                    <h6 class="my-0">@item.dongho.TenDongHo</h6>
+
+                    <span class="text-muted"> @String.Format("{0:N0}", item.dongho.DonGia)</span> 
+                </div>
+                stt++;
+            }
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between">
+            <span>Tổng tiền thanh toán</span>
+            <strong>
+            @{ var total = @String.Format("{0:N0}", cart.Sum(item => item.dongho.DonGia * item.soLuongTrongGio)) + " Đ";
+            }@total
+            </strong>
+            </li>
+            </ul>
+            @*<a href="@Url.Action("ThanhToanVnpay", "Home", new { TypePaymentVnp = 2 })" class="btn btn-success">Thanh toán</a>*@
+            </div>
+
+            <form id="form2" runat="server">
+                <div class="col-md-12 order-md-3">
+                    <h2> Xác nhận thanh Toán</h2>
+
+                    <div class="card mt-3">
+                        <h5 class="card-header">Thông tin thanh toán</h5>
+                        <div class="card-body">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.DienThoaiGiaoHang)
+                                    @Html.EditorFor(model => model.DienThoaiGiaoHang, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DienThoaiGiaoHang, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.DiaChiGiaoHang)
+                                    @Html.EditorFor(model => model.DiaChiGiaoHang, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DiaChiGiaoHang, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group mb-0">
+
+                                    <input type="submit" value="Thanh toán" class="btn btn-success"
+                                           onclick="location.href='@Url.Action("ThanhToanVnpay", "Home",new { TypePaymentVnp = 2 })'" />
+                                    hoặc @Html.ActionLink("Quay về trang chủ", "Index", "Home")
+                                    @*  <a href="@Url.Action("ThanhToanVnpay", "Home", new { TypePaymentVnp = 2 })" type="submit" class="btn btn-success">Thanh toán</a> hoặc @Html.ActionLink("Quay về trang chủ", "Index", "Home")*@
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    @*<h4>Chọn phương thức thanh toán:</h4>*@
+
+                    @*<div class="d-block my-3">
+            <h5 class="mb-3">Cách 1: Chuyển hướng sang VNPAY chọn phương thức thanh toán</h5>
+            <div class="form-check">
+                <input id="bankcode_Default" class="form-check-input" type="radio" name="flexRadioDefault" checked=checked />
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Cổng thanh toán VNPAYQR
+                </label> <br />
+            </div>
+
+            <h5 class="mb-3">Cách 2: Tách phương thức thanh toán tại site của Merchant</h5>
+            <div class="form-check">
+                <input id="bankcode_Vnpayqr" class="form-check-input" type="radio" name="flexRadioDefault2" />
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Thanh toán qua ứng dụng hỗ trợ VNPAYQR
+                </label> <br />
+            </div>
+
+            <div class="form-check">
+                <input id="bankcode_Vnbank" class="form-check-input" type="radio" name="flexRadioDefault3" />
+                <label class="form-check-label" for="flexRadioDefault3">
+                    ATM-Tài khoản ngân hàng nội địa
+                </label> <br />
+            </div>
+
+            <div class="form-check">
+                <input id="bankcode_Intcard" class="form-check-input" type="radio" name="flexRadioDefault4" />
+                <label class="form-check-label" for="flexRadioDefault4">
+                    Thanh toán qua thẻ quốc tế
+                </label> <br />
+            </div>
+        </div>*@
+                </div>
+            </form>
+        </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ShopDongHo.Models.ListDatHangTong>
+
+@{
+    Layout = null;
+}
+
+<h3> DANH SÁCH ĐƠN ĐÃ ĐẶT</h3>
+
+<table class="table css-serial">
+    <tr>
+        <th>
+            STT
+        </th>
+        <th>
+            Họ và Tên Khách hàng
+        </th>
+        <th>
+            Điện Thoại
+        </th>
+        <th>
+            Địa Chỉ Giao hàng
+        </th>
+        <th>
+            Ngày Đặt Hàng
+        </th>
+        <th>
+            Tên Hàng Hóa
+        </th>
+        <th>
+            Số Lượng
+        </th>
+        <th>
+            Đơn Giá
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoVaten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienThoaiGiaoHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChiGiaoHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDatHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDongHo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>*@
+        </tr>
+    }
+
+</table>
+<style>
+    .css-serial {
+        counter-reset: serial-number;
+        /* set số thứ tự mặt định về 0 */
+    }
+
+        .css-serial td:first-child:before {
+            counter-increment: serial-number+1;
+            /* Tăng bộ đếm số thứ tự */
+            content: counter(serial-number);
+            /* số thứ tự hiển thị*/
+        }
+</style>

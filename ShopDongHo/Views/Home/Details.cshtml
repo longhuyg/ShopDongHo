@@ -1,0 +1,87 @@
+﻿@model ShopDongHo.Models.DongHo
+@{
+    ViewBag.Title = Model.TenDongHo;
+}
+
+<head>
+    <link href="~/content/Details.css" rel="stylesheet" />
+</head>
+
+
+<div class="card mt-2">
+    <h5 class="card-header">@ViewBag.Title</h5>
+    <button class="btnShow" style="width: 60px">
+        <font style="font-weight:bold;">3D</font> View
+    </button>
+    <div class="card-body">
+        <p>@Html.Raw(Model.MoTa)</p> <!-- chuyền nội dung mã hóa -->
+    </div>
+
+    <div id="modal-wrapper" class="modal" style="display: none;">
+        <div class="center">
+            <button class="btnclose">&times;</button>
+            <div class="rotation" style="position: relative;">
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-1.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-2.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-3.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-4.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-5.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-6.jpg" />
+
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-7.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-8.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-9.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-10.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-11.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-12.jpg" />
+
+                    @*<img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-13jpg" />*@
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-14.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-15.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-16.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-17.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-18.jpg" />
+
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-19.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-20.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-21.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-22.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-23.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-24.jpg" />
+
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-25.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-26.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-27.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-28.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-29.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-30.jpg" />
+
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-31.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-32.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-33.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-34.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-35.jpg" />
+                    <img src="https://cdn.tgdd.vn/Products/Images/2162/75072/Image360/loa-vi-tinh-fenda-a180x-360-36.jpg" />
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="~/Scripts/js/360deg.js" ></script>
+
+    <script type="text/javascript">
+        $(".btnclose").on("click", function () {
+            $("#modal-wrapper").modal('toggle');
+        });
+
+        $('.btnShow').on("click",function (event) {
+            $('#modal-wrapper').modal('show'); //This prevents the default action  
+        });
+
+    </script>
+}
+
